@@ -1,0 +1,6 @@
+---
+- name: test
+  hosts: one
+  tasks:
+    - name: nothing
+      command: ls -la

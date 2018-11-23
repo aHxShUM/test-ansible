@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "docker",
-      "image": "debian:9",
+      "image": "rastasheep/ubuntu-sshd",
       "commit": true
     }
   ],
@@ -11,15 +11,14 @@
       "type": "shell",
       "inline": [
         "apt-get update",
-        "apt-get install -y ansible",
-        "apt-get install -y sshpass"
+        "apt-get install -y python"
       ]
     }
   ],
   "post-processors": [
     {
       "type": "docker-tag",
-      "repository": "local/ansible-master",
+      "repository": "local/ansible-slave",
       "tag": "latest"
     }
   ]

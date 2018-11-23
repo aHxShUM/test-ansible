@@ -3,10 +3,15 @@ version: '3'
 services:
 
   master:
-    image: local/debian
+    image: local/ansible-master
+    command: tail -f /dev/null
+    working_dir: /ansible
+    volumes:
+      - ./ansible:/ansible
 
   slave1: &slave
-    image: rastasheep/ubuntu-sshd
+    command: /usr/sbin/sshd -D
+    image: local/ansible-slave
 
   slave2:
     <<: *slave
